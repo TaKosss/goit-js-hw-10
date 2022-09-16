@@ -16,7 +16,7 @@ refs.input.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY))
 function onSearch(e) {
     e.preventDefault()
     const searchBox = e.target.value.trim()
-    if (searchBox === '') {
+    if ( !searchBox ) {
         cleanHtml()
     }
    fetchCountries(searchBox)
@@ -59,7 +59,7 @@ function renderOneCountry(countries) {
     refs.countryList.innerHTML = markup
 }
 
-function onCatchError(error) {
+function onCatchError() {
     Notiflix.Notify.failure("Oops, there is no country with that name")
 }
 
